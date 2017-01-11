@@ -57,8 +57,8 @@ lastresult = 1
 5.times {
 if $resultgame[count] != result[count]
   lastresult = 0
+  count += 1
 end
-count += 1
 }
 
 if lastresult == 1
