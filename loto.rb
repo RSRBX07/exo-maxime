@@ -64,5 +64,5 @@ end
 if lastresult == 1
   puts "Vous avez gagné !"
 else
-  puts "Vous avez perdu."
+  puts "Vous avez perdu.1"
 end
