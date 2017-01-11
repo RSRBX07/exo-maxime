@@ -1,17 +1,15 @@
 #maxime
-def roll cheat
+def roll (cheat = nil)
   if cheat
-    dice = [1,2,3,4,5,6]
-  else
     dice = [cheat]
+  else
+    dice = [1,2,3,4,5,6]
   end
-  nbr = dice.size
-  result = rand nbr
-  dice[result]
+    nbr = dice.size
+    result = rand nbr
+    dice[result]
 end
 
-print "lancer un dé : "
-input = gets.to_i
+puts roll
 
-
-puts roll input
+puts roll 88
