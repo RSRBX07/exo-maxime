@@ -25,16 +25,14 @@ def map card_and_animals
   end
 puts "|====={sur la peche}=====|"
 print "|"
-print animal_in_peche.join(" ")
-puts "|"     
+puts animal_in_peche.join(" ")    
 puts "|====={sur le pont}======|"
 print "|"
-print animal_in_pont.join(" ")
-puts "|"  
+puts animal_in_pont.join(" ") 
 puts "|===={sur le l'igloo}====|"
 print "|"
-print animal_in_igloo.join(" ")
-puts "|"  
+puts animal_in_igloo.join(" ")
+puts "=========================="  
 end
 
 def game 
