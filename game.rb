@@ -23,16 +23,16 @@ def map card_and_animals
       animal_in_igloo.push(clef)
     end
   end
-puts "|====={sur la peche}=====|"
-print "|"
-puts animal_in_peche.join(" ")    
-puts "|====={sur le pont}======|"
-print "|"
-puts animal_in_pont.join(" ") 
-puts "|===={sur le l'igloo}====|"
-print "|"
-puts animal_in_igloo.join(" ")
-puts "=========================="  
+  puts "|====={sur la peche}=====|"
+  print "|"
+  puts animal_in_peche.join(" ")    
+  puts "|====={sur le pont}======|"
+  print "|"
+  puts animal_in_pont.join(" ") 
+  puts "|===={sur le l'igloo}====|"
+  print "|"
+  puts animal_in_igloo.join(" ")
+  puts "=========================="  
 end
 
 def game 
