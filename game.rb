@@ -1,11 +1,29 @@
 def dice
     faces = ["pont", "pont", "igloo", "igloo", "glacon", "glacon"]
     throwing_dice = rand(faces.size)
-    game faces[throwing_dice]
+    faces[throwing_dice]
 end
 
-def game dice
-  puts dice
+def game 
+  pont = 6
+  while pont != 0 #|| animal[pingouin] != "igloo" || animal[lapin] != "igloo" || animal[ours] != "igloo" || animal[pingouin] != "igloo"
+    fdice = dice
+    if fdice == "pont"
+      message = "déplacer un animal vers le pont"
+    elsif fdice == "igloo"
+      message = "déplacer un animal vers l'igloo"
+    elsif fdice == "glacon"
+      message = "       la banquise fond …      "
+      pont -= 1
+      puts pont
+    end
+    #system("cls")
+    puts "============================================"
+    puts "|      #{message}     |"
+    puts "============================================"
+    dice
+  end
+
 end
 
 def menu
@@ -21,7 +39,7 @@ def menu
     system("cls")
     menu
   elsif reponse == play.to_sym
-    dice
+    game
   elsif reponse == help.to_sym
     system("cls")
     puts""
