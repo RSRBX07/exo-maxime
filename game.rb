@@ -149,6 +149,7 @@ def menu
     menu
   elsif reponse == quit.to_sym
     puts "Merci"
+    exit
   end
 end
 
