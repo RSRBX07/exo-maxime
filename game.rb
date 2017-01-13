@@ -10,6 +10,33 @@ def status_message indication
   puts "============================================"
 end
 
+def map card_and_animals
+  animal_in_peche = []
+  animal_in_pont = []
+  animal_in_igloo = []
+  card_and_animals.each do |clef, valeur|
+    if valeur == "pont"
+      animal_in_pont.push(clef)
+    elsif valeur == "peche"
+      animal_in_peche.push(clef)
+    elsif valeur == "igloo"
+      animal_in_igloo.push(clef)
+    end
+  end
+puts "|====={sur la peche}=====|"
+print "|"
+print animal_in_peche.join(" ")
+puts "|"     
+puts "|====={sur le pont}======|"
+print "|"
+print animal_in_pont.join(" ")
+puts "|"  
+puts "|===={sur le l'igloo}====|"
+print "|"
+print animal_in_igloo.join(" ")
+puts "|"  
+end
+
 def game 
   hp_pont = 6
   card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
@@ -20,6 +47,7 @@ def game
       while exit_while != 0
         indication = "déplacer un animal vers le pont"
         status_message indication
+        map card_and_animals
         tmp = []
         card_and_animals.each do |clef, valeur|
           if valeur != "pont"
@@ -45,6 +73,7 @@ def game
       while exit_while != 0
         indication = "déplacer un animal vers l'igloo"
         status_message indication
+        map card_and_animals
         tmp = []
         card_and_animals.each do |clef, valeur|
           if valeur == "pont"
