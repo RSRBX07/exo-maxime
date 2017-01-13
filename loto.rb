@@ -3,19 +3,47 @@
 #5 chiffres entre 1 et 45 sont nécessaires. un double
 # n'est pas permis.
 #==================================================
-def check_Input_Game
-  if $inputNumber < 1 || $inputNumber > 45
+def create_a_grid
+  count = 0
+  resultgame = []
+  while count <= 4
+    print "jouez un chiffre entre 1 et 45 : "
+    inputNumber = gets.to_i
+    if inputNumber < 1 || inputNumber > 45
+      puts "Jouez un chiffre valide entre 1 et 45."
+    elsif inputNumber == resultgame[0] || inputNumber == resultgame[1] ||
+      inputNumber == resultgame[2] || inputNumber == resultgame[3] ||
+      inputNumber == resultgame[4]
+      puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
+    else
+      count += 1
+      resultgame.push(inputNumber)
+      if count == 5
+        puts "Votre bulletin est enregistré : #{resultgame.sort!}"
+        return resultgame
+      else
+      end
+    end
+  end
+end
+
+resultgame = create_a_grid
+
+=begin
+def check_Input_Game inputNumber
+  if inputNumber < 1 || inputNumber > 45
     puts "Jouez un chiffre valide entre 1 et 45."
     game
-  elsif $inputNumber == $resultgame[0] || $inputNumber == $resultgame[1] ||
-    $inputNumber == $resultgame[2] || $inputNumber == $resultgame[3] ||
-    $inputNumber == $resultgame[4]
-    puts "Vous avez déjà joué le #{$inputNumber}, merci de rejouer un autre chiffre."
+  elsif inputNumber == $resultgame[0] || inputNumber == $resultgame[1] ||
+    inputNumber == $resultgame[2] || inputNumber == $resultgame[3] ||
+    inputNumber == $resultgame[4]
+    puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
     game
   else
     $count += 1
-    $resultgame.push($inputNumber)
+    $resultgame.push(inputNumber)
     if $count == 5
+      return $resultgame
       puts "Votre bulletin est enregistré : #{$resultgame.sort!}"
     else
       game
@@ -23,15 +51,17 @@ def check_Input_Game
   end
 end
 
-def game
+def game 
   print "jouez un chiffre entre 1 et 45 : "
-  $inputNumber = gets.to_i
-  check_Input_Game
+  inputNumber = gets.to_i
+  check_Input_Game inputNumber
 end
 
 $count = 0
 $resultgame = []
-game
+inputNumber = game
+=end
+
 #==================================================
 #Loto initial
 #==================================================
@@ -55,7 +85,7 @@ count = 0
 lastresult = 1
 
 5.times {
-if $resultgame[count] != result[count]
+if resultgame[count] != result[count]
   lastresult = 0
   count += 1
 end
@@ -64,5 +94,5 @@ end
 if lastresult == 1
   puts "Vous avez gagné !"
 else
-  puts "Vous avez perdu.1"
+  puts "Vous avez perdu."
 end
