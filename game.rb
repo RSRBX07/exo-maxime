@@ -11,7 +11,7 @@ def status_message indication
 end
 
 def game 
-  hp_pont = 32
+  hp_pont = 6
   card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
   while hp_pont != 0 
     result_of_dice = dice
