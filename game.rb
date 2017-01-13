@@ -1,29 +1,98 @@
 def dice
-    faces = ["pont", "pont", "igloo", "igloo", "glacon", "glacon"]
-    throwing_dice = rand(faces.size)
-    faces[throwing_dice]
+  faces = ["pont", "pont", "igloo", "igloo", "glacon", "glacon"]
+  throwing_dice = rand(faces.size)
+  faces[throwing_dice]
+end
+
+def status_message indication
+  puts "============================================"
+  puts "|      #{indication}     |"
+  puts "============================================"
 end
 
 def game 
-  pont = 6
-  while pont != 0 #|| animal[pingouin] != "igloo" || animal[lapin] != "igloo" || animal[ours] != "igloo" || animal[pingouin] != "igloo"
-    fdice = dice
-    if fdice == "pont"
-      message = "déplacer un animal vers le pont"
-    elsif fdice == "igloo"
-      message = "déplacer un animal vers l'igloo"
-    elsif fdice == "glacon"
-      message = "       la banquise fond …      "
-      pont -= 1
-      puts pont
+  hp_pont = 32
+  card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
+  while hp_pont != 0 
+    result_of_dice = dice
+    if result_of_dice == "pont"
+      exit_while = 1
+      while exit_while != 0
+        indication = "déplacer un animal vers le pont"
+        status_message indication
+        tmp = []
+        card_and_animals.each do |clef, valeur|
+          if valeur != "pont"
+            print " #{clef}"
+            tmp.push(clef)
+          end
+        end
+        if tmp.size == 0
+          print "pas d'animal à déplacer appuyer sur entrée"
+          exit_while = 0
+        end
+        print " :"
+        reponce = gets.chomp.downcase
+        tmp.each do |clef|
+          if clef == reponce
+            exit_while = 0
+          end
+        end
+      end
+      card_and_animals[reponce] = "pont"
+    elsif result_of_dice == "igloo"
+      exit_while = 1
+      while exit_while != 0
+        indication = "déplacer un animal vers l'igloo"
+        status_message indication
+        tmp = []
+        card_and_animals.each do |clef, valeur|
+          if valeur == "pont"
+            print " #{clef}"
+            tmp.push(clef)
+          end
+        end
+        if tmp.size == 0
+          print "pas d'animal à déplacer appuyer sur entrée"
+          exit_while = 0
+        end
+        print " :"
+        reponce = gets.chomp.downcase
+        tmp.each do |clef|
+          if clef == reponce
+            exit_while = 0
+          end
+        end
+      end
+      card_and_animals[reponce] = "igloo"
+    elsif result_of_dice == "glacon"
+      indication = "       la banquise fond …      "
+      status_message indication
+      hp_pont -= 1
+      puts "Il reste #{hp_pont} PV au pont."
     end
-    #system("cls")
-    puts "============================================"
-    puts "|      #{message}     |"
-    puts "============================================"
-    dice
+    if hp_pont == 0
+      system("cls")
+      puts "========================================="
+      puts "|            Vous avez perdu            |"
+      puts "========================================="
+      menu
+    else 
+      final = 1
+      card_and_animals.each_value do |valeur|
+        if valeur != "igloo"
+          final = 0
+        end
+      end
+      if final == 1 
+        system("cls")
+        puts "========================================="
+        puts "|            Vous avez gagné            |"
+        puts "========================================="
+        menu
+      end
+    end
   end
-
 end
 
 def menu
@@ -33,7 +102,7 @@ def menu
   puts "========================================="
   puts "|      Bienvenue le jeux de l'igloo     |"
   puts "========================================="
-  print "jouer (j) regle du jeux (r) quitter (q): "
+  print "jouer (j) règle du jeu (r) quitter (q): "
   reponse = gets.chomp.downcase.to_sym
   if reponse != play.to_sym && reponse != help.to_sym && reponse != quit.to_sym
     system("cls")
@@ -84,16 +153,3 @@ def menu
 end
 
 menu
-#pont = [6]
-#igloo = []
-=begin
-  
-rescue => exception
-  
-end
-peche = ["pingouin", "ours", "lapin", "loup"]
-
-while pont[0] == 0 || igloo.size == 4
-  
-end
-=end
