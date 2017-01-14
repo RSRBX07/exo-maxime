@@ -10,28 +10,19 @@ def status_message indication
 end
 
 def map card_and_animals
-  animal_in_peche = []
-  animal_in_pont = []
-  animal_in_igloo = []
+  maps_animals = { "peche" => [], "pont" => [], "igloo" => []}
   card_and_animals.each do |animals, maps|
     if maps == "pont"
-      animal_in_pont.push(animals)
+      maps_animals["pont"].push(animals)
     elsif maps == "peche"
-      animal_in_peche.push(animals)
+      maps_animals["peche"].push(animals)
     elsif maps == "igloo"
-      animal_in_igloo.push(animals)
+      maps_animals["igloo"].push(animals)
     end
   end
-  puts "|====={sur la peche}=====|"
-  print "|"
-  puts animal_in_peche.join(" ")    
-  puts "|====={sur le pont}======|"
-  print "|"
-  puts animal_in_pont.join(" ") 
-  puts "|===={sur le l'igloo}====|"
-  print "|"
-  puts animal_in_igloo.join(" ")
-  puts "=========================="  
+  maps_animals.each do |maps, animals|
+    puts "|====={sur la #{maps}}=====| \n| #{animals.join(" ")}"    
+  end
 end
 
 def game 
