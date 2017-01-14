@@ -1,7 +1,7 @@
 def dice
-  faces = ["pont", "pont", "igloo", "igloo", "glacon", "glacon"]
-  throwing_dice = rand(faces.size)
-  faces[throwing_dice]
+  faces = ["pont", "igloo", "glacon"]
+  faces.shuffle!
+  faces[0]
 end
 
 def status_message indication
