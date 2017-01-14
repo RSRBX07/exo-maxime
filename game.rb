@@ -13,13 +13,13 @@ def map card_and_animals
   animal_in_peche = []
   animal_in_pont = []
   animal_in_igloo = []
-  card_and_animals.each do |clef, valeur|
-    if valeur == "pont"
-      animal_in_pont.push(clef)
-    elsif valeur == "peche"
-      animal_in_peche.push(clef)
-    elsif valeur == "igloo"
-      animal_in_igloo.push(clef)
+  card_and_animals.each do |animals, maps|
+    if maps == "pont"
+      animal_in_pont.push(animals)
+    elsif maps == "peche"
+      animal_in_peche.push(animals)
+    elsif maps == "igloo"
+      animal_in_igloo.push(animals)
     end
   end
   puts "|====={sur la peche}=====|"
@@ -46,10 +46,10 @@ def game
         status_message indication
         map card_and_animals
         tmp = []
-        card_and_animals.each do |clef, valeur|
-          if valeur != "pont"
-            print " #{clef}"
-            tmp.push(clef)
+        card_and_animals.each do |animals, maps|
+          if maps != "pont"
+            print " #{animals}"
+            tmp.push(animals)
           end
         end
         if tmp.size == 0
@@ -58,8 +58,8 @@ def game
         end
         print " :"
         reponce = gets.chomp.downcase
-        tmp.each do |clef|
-          if clef == reponce
+        tmp.each do |animals|
+          if animals == reponce
             exit_while = 0
           end
         end
@@ -72,10 +72,10 @@ def game
         status_message indication
         map card_and_animals
         tmp = []
-        card_and_animals.each do |clef, valeur|
-          if valeur == "pont"
-            print " #{clef}"
-            tmp.push(clef)
+        card_and_animals.each do |animals, maps|
+          if maps == "pont"
+            print " #{animals}"
+            tmp.push(animals)
           end
         end
         if tmp.size == 0
@@ -84,8 +84,8 @@ def game
         end
         print " :"
         reponce = gets.chomp.downcase
-        tmp.each do |clef|
-          if clef == reponce
+        tmp.each do |animals|
+          if animals == reponce
             exit_while = 0
           end
         end
