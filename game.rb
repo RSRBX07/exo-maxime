@@ -1,7 +1,6 @@
 def dice
   faces = ["pont", "igloo", "glacon"]
-  faces.shuffle!
-  faces[0]
+  faces.shuffle[0]
 end
 
 def status_message indication
