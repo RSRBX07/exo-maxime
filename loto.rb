@@ -29,39 +29,6 @@ end
 
 resultgame = create_a_grid
 
-=begin
-def check_Input_Game inputNumber
-  if inputNumber < 1 || inputNumber > 45
-    puts "Jouez un chiffre valide entre 1 et 45."
-    game
-  elsif inputNumber == $resultgame[0] || inputNumber == $resultgame[1] ||
-    inputNumber == $resultgame[2] || inputNumber == $resultgame[3] ||
-    inputNumber == $resultgame[4]
-    puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
-    game
-  else
-    $count += 1
-    $resultgame.push(inputNumber)
-    if $count == 5
-      return $resultgame
-      puts "Votre bulletin est enregistré : #{$resultgame.sort!}"
-    else
-      game
-    end
-  end
-end
-
-def game 
-  print "jouez un chiffre entre 1 et 45 : "
-  inputNumber = gets.to_i
-  check_Input_Game inputNumber
-end
-
-$count = 0
-$resultgame = []
-inputNumber = game
-=end
-
 #==================================================
 #Loto initial
 #==================================================
