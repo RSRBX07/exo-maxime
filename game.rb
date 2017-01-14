@@ -35,9 +35,9 @@ def map card_and_animals
 end
 
 def game 
-  hp_pont = 6
+  health_point_pont = 6
   card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
-  while hp_pont != 0 
+  while health_point_pont != 0 
     result_of_dice = dice
     if result_of_dice == "pont"
       exit_while = 1
@@ -94,10 +94,10 @@ def game
     elsif result_of_dice == "glacon"
       indication = "       la banquise fond …      "
       status_message indication
-      hp_pont -= 1
-      puts "Il reste #{hp_pont} PV au pont."
+      health_point_pont -= 1
+      puts "Il reste #{health_point_pont} PV au pont."
     end
-    if hp_pont == 0
+    if health_point_pont == 0
       system("cls")
       puts "========================================="
       puts "|            Vous avez perdu            |"
