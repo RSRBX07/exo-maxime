@@ -46,7 +46,7 @@ end
 
 def dice
   faces = ["pont", "igloo", "glacon"]
-  faces.shuffle[0]
+  faces.sample
 end
 
 def status_message indication
