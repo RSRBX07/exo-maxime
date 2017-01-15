@@ -41,13 +41,12 @@ puts "Le résultat du loto est       : #{result.sort!}"
 #==================================================
 #Resultat
 #==================================================
-count = 0
+ticket_control = 5
 last_result = 1
 
-5.times {
-if result_game[count] != result[count]
+ticket_control.times {
+if result_game[ticket_control - 1] != result[ticket_control - 1]
   last_result = 0
-  count += 1
 end
 }
 
