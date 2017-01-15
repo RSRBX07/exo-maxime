@@ -26,88 +26,91 @@ def map card_and_animals
 end
 
 def game 
-  health_point_pont = 6
+  health_point_pont = 70
   card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
   while health_point_pont != 0 
     result_of_dice = dice
-    if result_of_dice == "pont"
-      exit_while = 1
-      while exit_while != 0
-        indication = "déplacer un animal vers le pont"
-        status_message indication
-        map card_and_animals
-        tmp = []
-        card_and_animals.each do |animals, maps|
-          if maps != "pont"
-            print " #{animals}"
-            tmp.push(animals)
-          end
-        end
-        if tmp.size == 0
-          print "pas d'animal à déplacer appuyer sur entrée"
-          exit_while = 0
-        end
-        print " :"
-        reponce = gets.chomp.downcase
-        tmp.each do |animals|
-          if animals == reponce
-            exit_while = 0
-          end
-        end
-      end
-      card_and_animals[reponce] = "pont"
-    elsif result_of_dice == "igloo"
-      exit_while = 1
-      while exit_while != 0
-        indication = "déplacer un animal vers l'igloo"
-        status_message indication
-        map card_and_animals
-        tmp = []
-        card_and_animals.each do |animals, maps|
-          if maps == "pont"
-            print " #{animals}"
-            tmp.push(animals)
-          end
-        end
-        if tmp.size == 0
-          print "pas d'animal à déplacer appuyer sur entrée"
-          exit_while = 0
-        end
-        print " :"
-        reponce = gets.chomp.downcase
-        tmp.each do |animals|
-          if animals == reponce
-            exit_while = 0
-          end
-        end
-      end
-      card_and_animals[reponce] = "igloo"
-    elsif result_of_dice == "glacon"
-      indication = "       la banquise fond …      "
-      status_message indication
-      health_point_pont -= 1
-      puts "Il reste #{health_point_pont} PV au pont."
-    end
     if health_point_pont == 0
       system("cls")
       puts "========================================="
       puts "|            Vous avez perdu            |"
       puts "========================================="
       menu
-    else 
-      final = 1
-      card_and_animals.each_value do |valeur|
-        if valeur != "igloo"
-          final = 0
+    end
+    final = 1
+    card_and_animals.each_value do |valeur|
+      if valeur == "pont" || valeur == "peche"
+        final = 0
+      end
+    end
+    if final == 1 
+      system("cls")
+      puts "========================================="
+      puts "|            Vous avez gagné            |"
+      puts "========================================="
+      menu
+    end
+    if result_of_dice == "pont"
+    exit_while = 1
+    while exit_while != 0
+      indication = "déplacer un animal vers le pont"
+      status_message indication
+      map card_and_animals
+      tmp = []
+      card_and_animals.each do |animals, maps|
+        if maps != "pont"
+          print " #{animals}"
+          tmp.push(animals)
         end
       end
-      if final == 1 
-        system("cls")
-        puts "========================================="
-        puts "|            Vous avez gagné            |"
-        puts "========================================="
-        menu
+      if tmp.size == 0
+        print "pas d'animal à déplacer appuyer sur entrée"
+        exit_while = 0
       end
+      print " :"
+      reponce = gets.chomp.downcase
+      tmp.each do |animals|
+        if animals == reponce
+          card_and_animals[reponce] = "pont"
+          exit_while = 0
+        elsif reponce == ""
+          exit_while = 0
+        end
+      end
+    end 
+    elsif result_of_dice == "igloo"
+      exit_while = 1
+    while exit_while != 0
+      indication = "déplacer un animal vers l'igloo"
+      status_message indication
+      map card_and_animals
+      tmp = []
+      card_and_animals.each do |animals, maps|
+        if maps == "pont"
+          print " #{animals}"
+          tmp.push(animals)
+        end
+      end
+      if tmp.size == 0
+        print "pas d'animal à déplacer appuyer sur entrée"
+        exit_while = 0
+      end
+      print " :"
+      reponce = gets.chomp.downcase
+      tmp.each do |animals|
+        if animals == reponce
+          card_and_animals[reponce] = "igloo"
+          exit_while = 0
+        elsif reponce == ""
+          exit_while = 0
+        end
+      end
+    end
+    elsif result_of_dice == "glacon"
+      indication = "       la banquise fond …      "
+      status_message indication
+      health_point_pont -= 1
+      puts "Il reste #{health_point_pont} PV au pont."
     end
   end
 end
