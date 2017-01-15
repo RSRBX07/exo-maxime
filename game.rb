@@ -1,4 +1,4 @@
-def os
+def clear
   if Gem::Platform.local.os == "linux"
     system("clear")
   else
@@ -118,7 +118,7 @@ def game
       end
     end
     if final == 1 
-      os
+      clear
       indication = "       Vous avez gagné         "
       status_message indication
       menu
@@ -132,7 +132,7 @@ def game
       move_animals(card_and_animals,result_of_dice)
     end
     if health_point_pont == 0
-      os
+      clear
       indication = "       Vous avez perdu         "
       status_message indication
       menu
@@ -149,12 +149,12 @@ def menu
   print "jouer (j) règle du jeu (r) quitter (q): "
   reponse = gets.chomp.downcase.to_sym
   if reponse != play.to_sym && reponse != help.to_sym && reponse != quit.to_sym
-    os
+    clear
     menu
   elsif reponse == play.to_sym
     game
   elsif reponse == help.to_sym
-    os
+    clear
     doc
     menu
   elsif reponse == quit.to_sym
