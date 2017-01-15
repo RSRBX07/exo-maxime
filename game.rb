@@ -26,7 +26,7 @@ def map card_and_animals
 end
 
 def game 
-  health_point_pont = 70
+  health_point_pont = 6
   card_and_animals = {"pingouin" => "peche","lapin" => "peche","ours" => "peche","loup" => "peche"}
   while health_point_pont != 0 
     result_of_dice = dice
