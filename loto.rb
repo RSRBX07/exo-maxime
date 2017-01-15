@@ -11,9 +11,7 @@ def create_a_grid
     inputNumber = gets.to_i
     if inputNumber < 1 || inputNumber > 45
       puts "Jouez un chiffre valide entre 1 et 45."
-    elsif inputNumber == resultgame[0] || inputNumber == resultgame[1] ||
-      inputNumber == resultgame[2] || inputNumber == resultgame[3] ||
-      inputNumber == resultgame[4]
+    elsif resultgame.bsearch { |result| inputNumber == result } 
       puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
     else
       count += 1
