@@ -4,25 +4,20 @@
 # n'est pas permis.
 #==================================================
 def create_a_grid
-  count = 0
   resultgame = []
-  while count <= 4
+  while resultgame.size <= 4
     print "jouez un chiffre entre 1 et 45 : "
     inputNumber = gets.to_i
     if inputNumber < 1 || inputNumber > 45
       puts "Jouez un chiffre valide entre 1 et 45."
-    elsif resultgame.bsearch { |result| inputNumber == result } 
+    elsif resultgame.include?(inputNumber)
       puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
     else
-      count += 1
       resultgame.push(inputNumber)
-      if count == 5
-        puts "Votre bulletin est enregistré : #{resultgame.sort!}"
-        return resultgame
-      else
-      end
     end
   end
+  puts "Votre bulletin est enregistré : #{resultgame.sort!}"
+  resultgame
 end
 
 resultgame = create_a_grid
