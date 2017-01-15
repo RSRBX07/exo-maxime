@@ -4,23 +4,23 @@
 # n'est pas permis.
 #==================================================
 def create_a_grid
-  resultgame = []
-  while resultgame.size <= 4
+  result_game = []
+  while result_game.size <= 4
     print "jouez un chiffre entre 1 et 45 : "
-    inputNumber = gets.to_i
-    if inputNumber < 1 || inputNumber > 45
+    input_number = gets.to_i
+    if input_number < 1 || input_number > 45
       puts "Jouez un chiffre valide entre 1 et 45."
-    elsif resultgame.include?(inputNumber)
-      puts "Vous avez déjà joué le #{inputNumber}, merci de rejouer un autre chiffre."
+    elsif result_game.include?(input_number)
+      puts "Vous avez déjà joué le #{input_number}, merci de rejouer un autre chiffre."
     else
-      resultgame.push(inputNumber)
+      result_game.push(input_number)
     end
   end
-  puts "Votre bulletin est enregistré : #{resultgame.sort!}"
-  resultgame
+  puts "Votre bulletin est enregistré : #{result_game.sort!}"
+  result_game
 end
 
-resultgame = create_a_grid
+result_game = create_a_grid
 
 #==================================================
 #Loto initial
@@ -32,9 +32,9 @@ number = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 result = []
 
 5.times {
-  varRand = rand (number.size)
-  result.push(number[varRand])
-  number.delete_at(varRand)
+  var_rand = rand (number.size)
+  result.push(number[var_rand])
+  number.delete_at(var_rand)
   }
 
 puts "Le résultat du loto est       : #{result.sort!}"
@@ -42,16 +42,16 @@ puts "Le résultat du loto est       : #{result.sort!}"
 #Resultat
 #==================================================
 count = 0
-lastresult = 1
+last_result = 1
 
 5.times {
-if resultgame[count] != result[count]
-  lastresult = 0
+if result_game[count] != result[count]
+  last_result = 0
   count += 1
 end
 }
 
-if lastresult == 1
+if last_result == 1
   puts "Vous avez gagné !"
 else
   puts "Vous avez perdu."
