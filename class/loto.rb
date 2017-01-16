@@ -1,20 +1,24 @@
 class Loto
 
   def create_a_grid
-    result_game = []
-    while result_game.size <= 4
-      print "jouez un chiffre entre 1 et 45 : "
-      input_number = gets.to_i
-      if input_number < 1 || input_number > 45
-        puts "Jouez un chiffre valide entre 1 et 45."
-      elsif result_game.include?(input_number)
-        puts "Vous avez déjà joué le #{input_number}, merci de rejouer un autre chiffre."
-      else
-        result_game.push(input_number)
+    if @draw.nil?
+      result_game = []
+      while result_game.size <= 4
+        print "jouez un chiffre entre 1 et 45 : "
+        input_number = gets.to_i
+        if input_number < 1 || input_number > 45
+          puts "Jouez un chiffre valide entre 1 et 45."
+        elsif result_game.include?(input_number)
+          puts "Vous avez déjà joué le #{input_number}, merci de rejouer un autre chiffre."
+        else
+          result_game.push(input_number)
+        end
       end
+      puts "Votre bulletin est enregistré : #{result_game.sort!}"
+      result_game
+    else
+      puts "Le tirage a déjà été effectué."
     end
-    puts "Votre bulletin est enregistré : #{result_game.sort!}"
-    grid_validation result_game
   end
 
   def grid_validation grid
