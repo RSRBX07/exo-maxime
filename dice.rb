@@ -1,10 +1,15 @@
 #maxime
-def roll
-  faces = ["pont", "igloo", "glacon"]
-  faces.sample
+class Dice
+  
 end
 
-class Dice
+def roll (cheat = nil)
+  
+  return cheat if cheat
+   
+  dice = [1,2,3,4,5,6]
+  index = rand 6
+  dice[index]
   
 end
 
