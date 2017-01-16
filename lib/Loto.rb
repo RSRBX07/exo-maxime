@@ -1,18 +1,17 @@
 class Loto
 
+  def check_draw
+    @draw ? false : true
+  end
+
   def self.create_a_grid
-    if @draw.nil?
       result_game = []
       while result_game.size <= 4
         print "jouez un chiffre entre 1 et 45 : "
         input_number = gets.to_i
         check_numbers input_number,result_game
       end
-      puts "Votre bulletin est enregistré : #{result_game.sort!}"
       result_game
-    else
-      puts "Le tirage a déjà été effectué."
-    end
   end
 
   def self.check_numbers(input_number,result_game)
@@ -26,28 +25,36 @@ class Loto
   end
 
   def grid_validation grid
-    @palyers ||= []
-    @palyers << grid
+    if check_draw
+      @palyers ||= []
+      @palyers << grid 
+    else
+      puts "Le tirage a déjà été effectué."
+    end
   end
 
-  def check_result result_game
+  def check_result
     @draw = @draw || (1..45).to_a.sample(5).sort
     ticket_control = 5
     last_result = 1
 
-    ticket_control.times {
-      if result_game[ticket_control - 1] != @draw[ticket_control - 1]
+
+    @palyers.to_a.each do |grid|
+      ticket_control = grid.size
+      ticket_control.times {
+      if grid[ticket_control - 1] != @draw[ticket_control - 1]
         last_result = 0
       end
-    }
+      }
+      winner? last_result
+    end 
+  end
 
+  def winner? last_result
     if last_result == 1
-      puts "draw = #{@draw}"
       puts "Vous avez gagné !"
     else
-      puts "draw = #{@draw}"
       puts "Vous avez perdu."
     end
   end
-
 end
