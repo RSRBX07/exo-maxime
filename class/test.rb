@@ -1,11 +1,7 @@
-require './dice.rb'
 require './loto.rb'
 
-my_dice = Dice.new
+my_loto = Loto.new
 
-puts my_dice.roll
-
-puts my_dice.roll 88
-
-my_loto = Loto_test.new
-puts my_loto
+draw = my_loto.new_draw
+result = my_loto.create_a_grid
+my_loto.check_result(draw,result)

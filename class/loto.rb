@@ -1,7 +1,12 @@
 class Loto
 
+def new_draw
+  number = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+  39, 40, 41, 42, 43, 44, 45]
 
-
+  number.sample(5)
+end
 
 def create_a_grid
   result_game = []
@@ -20,39 +25,21 @@ def create_a_grid
   result_game
 end
 
-# result_game = create_a_grid
+def check_result draw,result_game
+  ticket_control = 5
+  last_result = 1
 
-#==================================================
-#Loto initial
-#==================================================
-number = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-  39, 40, 41, 42, 43, 44, 45]
+  ticket_control.times {
+    if result_game[ticket_control - 1] != draw[ticket_control - 1]
+    last_result = 0
+    end
+    }
 
-number.sample(5)
-result = []
-
-5.times {
-  var_rand = rand (number.size)
-  result.push(number[var_rand])
-  number.delete_at(var_rand)
-  }
-
-puts "Le résultat du loto est       : #{result.sort!}"
-#==================================================
-#Resultat
-#==================================================
-ticket_control = 5
-last_result = 1
-
-ticket_control.times {
-if result_game[ticket_control - 1] != result[ticket_control - 1]
-  last_result = 0
+  if last_result == 1
+    puts "Vous avez gagné !"
+  else
+    puts "Vous avez perdu."
+  end
 end
-}
 
-if last_result == 1
-  puts "Vous avez gagné !"
-else
-  puts "Vous avez perdu."
 end
