@@ -7,4 +7,4 @@
 # Loto.create_a_grid
 require '../french_number.rb'
 
-puts Number.spell_in_french 12
+puts Number.spell_in_french gets.to_i
