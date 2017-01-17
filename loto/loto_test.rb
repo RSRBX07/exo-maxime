@@ -1,4 +1,4 @@
-require './lib/Loto.rb'
+require 'loto.rb'
 my_loto = Loto.new
 # # draw = my_loto.new_draw
 2.times {
