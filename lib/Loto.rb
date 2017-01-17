@@ -16,11 +16,10 @@ class Loto
     result_game
   end
 
-  def self.check_numbers(input_number,result_game)
-    if input_number < 1 || input_number > 45 || result_game.include?(input_number)
-    else
-      result_game.push(input_number)
-    end
+  def self.flash_grid
+    result_game = (1..45).to_a.shuffle.take 5
+    #result_game = [1,1,1,1,1]
+    result_game
   end
   
   def grid_validation grid
@@ -48,6 +47,13 @@ class Loto
 
   def check_draw
     @draw.empty?
+  end
+
+  def self.check_numbers(input_number,result_game)
+    if input_number < 1 || input_number > 45 || result_game.include?(input_number)
+    else
+      result_game.push(input_number)
+    end
   end
 
   def winner? last_result
