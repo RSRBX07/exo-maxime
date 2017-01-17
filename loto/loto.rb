@@ -1,6 +1,11 @@
 class Loto
   attr_reader :draw, :players
 
+  def initialize
+    @players = []
+    @draw =[]
+  end
+
   def self.create_a_grid
     result_game = []
     while result_game.size <= 4
@@ -20,15 +25,14 @@ class Loto
   
   def grid_validation grid
     if check_draw
-      @players ||= []
-      @players << grid.sort 
+      @players << grid.sort
     else
-      return false
+     return false
     end
   end
 
   def check_result
-    @draw = @draw || (1..5).to_a.sample(5).sort
+    @draw = (1..5).to_a.sample(5).sort
     last_result = true
     @players.to_a.each do |grid|
       if grid == @draw
@@ -43,7 +47,7 @@ class Loto
   #=====================================
 
   def check_draw
-    @draw ? false : true
+    @draw.empty?
   end
 
   def winner? last_result
