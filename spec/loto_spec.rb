@@ -20,7 +20,7 @@ RSpec.describe Loto do
     grid = [42,42,42,42,42]
     expect(loto.grid_validation grid).to include grid
     check_draw = false
-    expect(loto.grid_validation grid).to include grid
+    # expect(loto.grid_validation grid).to include grid
   end
 
   it 'draw' do
