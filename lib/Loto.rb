@@ -10,6 +10,13 @@ class Loto
     end
     result_game
   end
+
+  def self.check_numbers(input_number,result_game)
+    if input_number < 1 || input_number > 45 || result_game.include?(input_number)
+    else
+      result_game.push(input_number)
+    end
+  end
   
   def grid_validation grid
     if check_draw
@@ -37,13 +44,6 @@ class Loto
 
   def check_draw
     @draw ? false : true
-  end
-
-  def self.check_numbers(input_number,result_game)
-    if input_number < 1 || input_number > 45 || result_game.include?(input_number)
-    else
-      result_game.push(input_number)
-    end
   end
 
   def winner? last_result
