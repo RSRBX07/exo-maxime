@@ -38,7 +38,7 @@ class Loto
       @draw ? false : true
     end
 
-    def self.check_numbers(input_number,result_game)
+    def check_numbers(input_number,result_game)
       if input_number < 1 || input_number > 45 || result_game.include?(input_number)
       else
         result_game.push(input_number)
