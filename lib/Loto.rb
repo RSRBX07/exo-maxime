@@ -34,23 +34,22 @@ class Loto
   private
 #=====================================
 
-    def check_draw
-      @draw ? false : true
-    end
+  def check_draw
+    @draw ? false : true
+  end
 
-    def check_numbers(input_number,result_game)
-      if input_number < 1 || input_number > 45 || result_game.include?(input_number)
-      else
-        result_game.push(input_number)
-      end
+  def check_numbers(input_number,result_game)
+    if input_number < 1 || input_number > 45 || result_game.include?(input_number)
+    else
+      result_game.push(input_number)
     end
+  end
 
-    def winner? last_result
-      if last_result == false
-        return true
-      else
-        return false
-      end
+  def winner? last_result
+    if last_result == false
+      return true
+    else
+      return false
     end
-
+  end
 end
