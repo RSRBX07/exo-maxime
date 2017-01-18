@@ -8,4 +8,4 @@ set d'initiation à ruby
 
 - ruby > 2.0
 - git
-- test
+
