@@ -33,7 +33,6 @@ class Plane < Vehicle
 end
 
 p = Plane.new
-#puts p.class.ancestors.inspect
 puts p.position
 p.take_off
 #Tours = latitude: 47.394144000000004,longitude: 0.6848399999999288
