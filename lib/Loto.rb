@@ -31,19 +31,25 @@ class Loto
   end
 
   def check_result
-    @draw = (1..5).to_a.sample(5).sort
-    last_result = true
-    @players.to_a.each do |grid|
-      if grid == @draw
-        last_result = false
-      end
-      return winner? last_result
-    end 
+    if check_draw
+      draw_n
+    else
+      last_result = true
+      @players.to_a.each do |grid|
+        if grid == @draw
+          last_result = false
+        end
+        return winner? last_result
+      end 
+    end
   end
 
 #=====================================
   private
 #=====================================
+  def draw_n
+      @draw = (1..45).to_a.sample(5).sort
+  end
 
   def check_draw
     @draw.empty?

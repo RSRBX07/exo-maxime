@@ -19,15 +19,20 @@ RSpec.describe Loto do
     expect(loto).to respond_to :grid_validation
     grid = [42,42,42,42,42]
     expect(loto.grid_validation grid).to include grid
-    check_draw = false
+    @draw = [2,2,2,2,2]
+    expect(loto.grid_validation grid).to be false
+
     # expect(loto.grid_validation grid).to include grid
   end
 
-  it 'draw' do
+  xit 'draw' do
     loto = Loto.new
     expect(loto).to respond_to :check_result
-    #expect{loto.check_result}.not_to raise_error
-    expect(loto.check_result).to be_an Array
+    loto.check_result
+    expect(@draw).to be_a Array
+    expect(@draw.size).to equal 5
+    #expect{loto.check_result}.not_to be_nil
+    #expect(@draw).to be_an Array
     # expect(loto.check_result.size).to equal 5
     # expect(loto.check_result).not_to eql (loto.check_result)
   end
