@@ -14,7 +14,7 @@ RSpec.describe Loto do
     expect(Loto.flash_grid).not_to eql (Loto.flash_grid)
   end
 
-  it 'grids validation' do
+  xit 'grids validation' do
     loto = Loto.new
     expect(loto).to respond_to :grid_validation
     grid = [42,42,42,42,42]
