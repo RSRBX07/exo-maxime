@@ -1,12 +1,16 @@
 class Vehicle
     attr_reader :position
 
-    def initalize
-        @position = [0,0,0]
+    def initialize
+        @position = {latitude: 0,longitude: 0,altitude: 0}
     end
 
-    def move
-        puts "move #{@position}"
+    def move latitude,longitude,altitude
+        @position[:latitude] = latitude
+        @position[:longitude] = longitude
+        @position[:altitude] = altitude
     end
 
 end
+
+#puts Vehicle.new.class.ancestors.inspect
