@@ -5,7 +5,6 @@ class Plane < Vehicle
     def initialize
         super
         @flight = false
-        #@position = {latitude: 0,longitude: 0,altitude: 0}
     end
 
     def flight?
@@ -22,4 +21,7 @@ class Plane < Vehicle
 end
 
 p = Plane.new
+puts p.position
+#Tours = latitude: 47.394144000000004,longitude: 0.6848399999999288
+p.move(-3.2985609,-2.493007)
 puts p.position
