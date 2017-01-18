@@ -2,7 +2,7 @@ require './vehicle/vehicle.rb'
 class Plane < Vehicle
     #attr_reader :flight
     def self.new
-        puts "Im creating a new Vehicle"
+        puts "Im creating a new Plane in Roubaix"
         super
     end
 
@@ -22,11 +22,21 @@ class Plane < Vehicle
     def take_off
         @flight = true
     end
+
+    def move latitude = 0,longitude = 0,altitude = 0
+      flight? ? super : false
+    end
+
+    private
+
+
 end
 
 p = Plane.new
-puts p.class.ancestors.inspect
+#puts p.class.ancestors.inspect
 puts p.position
+p.take_off
 #Tours = latitude: 47.394144000000004,longitude: 0.6848399999999288
 p.move(-3.2985609,-2.493007)
+puts "Advance to Tours"
 puts p.position
