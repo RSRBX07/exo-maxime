@@ -1,5 +1,5 @@
 #!/usr/share/rvm/rubies/ruby-2.4.0/bin/ruby
-#require 'rar'
+require 'rar'
 
 number_name = (8..12).to_a.sample
 grid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -13,10 +13,12 @@ number_name.times {
 }
 
 
-#archive = RAR::Archive.new name_rar_file
-#archive.add_file "#{ARGV[0]}"
-
-system("rar a -hp#{password} #{name_rar_file} -ed #{ARGV[0]}")
-
+archive = RAR::Archive.new name_rar_file,exclude_path: "",password: password
+dirname = ARGV[0].split(/\//)
+dirname = dirname[dirname.size - 1]
+puts dirname
+archive.add_file "#{dirname}"
+puts archive
+#archive.create!
 
 
