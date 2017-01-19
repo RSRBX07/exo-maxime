@@ -30,7 +30,7 @@ class Plane < Vehicle
       @flight = true
     end
 
-    def move latitude = 0,longitude = 0,altitude = 0
+    def move delta_latitude = 0,delta_longitude = 0,delta_altitude = 0
       return false if !flight?
       super
     end
