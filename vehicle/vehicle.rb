@@ -5,14 +5,16 @@ class Counter
     end
 
     def add_one
-        
+      new_val = value + 1
+      File.open "./tmp/counter", "w" do |file|
+        file.write new_val
+      end
     end
 
     def value
         File.open "./tmp/counter", "r" do |file|
-            file.each_line {|line| return line}
+            file.each_line {|line| return line.to_i}
         end
-        puts counter_file
     end
 
 end
