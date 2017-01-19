@@ -4,34 +4,35 @@ class Plane < Vehicle
     @@counter = 0
     
     def self.new
-        puts "Im creating a new Plane in Roubaix"
-        super
+      puts "Im creating a new Plane in Roubaix"
+      super
     end
 
     def initialize
-        @@counter += 1
-        super
-        @flight = false
+      super
+      @@counter += 1
+      @flight = false
     end
 
     def self.count
-    puts "We created #{@@counter} planes."
+      puts "We created #{@@counter} planes."
     end
 
     def flight?
-        @flight
+      @flight
     end
 
     def land
-        @flight = false
+      @flight = false
     end
 
     def take_off
-        @flight = true
+      @flight = true
     end
 
     def move latitude = 0,longitude = 0,altitude = 0
-      flight? ? super : false
+      return false if !flight?
+      super
     end
 
     private
