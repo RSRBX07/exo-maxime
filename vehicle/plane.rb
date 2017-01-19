@@ -5,14 +5,12 @@ class Plane < Vehicle
     def self.new
       puts "Im creating a new Plane in Roubaix"
       super
-
     end
 
     def initialize
       super
       @flight = false
     end
-
 
     def flight?
       @flight
@@ -31,9 +29,6 @@ class Plane < Vehicle
       super
     end
 
-    private
-
-
 end
 
 a = Plane.new
@@ -45,4 +40,5 @@ p.take_off
 p.move(-3.2985609,-2.493007)
 puts "Advance to Tours"
 puts p.position
-puts Plane.count
+Vehicle.count
+Plane.count
