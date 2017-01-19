@@ -1,4 +1,4 @@
-require './vehicle/counter.rb'
+require_relative 'counter.rb'
 class Vehicle
     attr_reader :position
     #retern the number of existing objects (in mermory) 
