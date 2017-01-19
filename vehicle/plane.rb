@@ -1,33 +1,40 @@
 require './vehicle/vehicle.rb'
 class Plane < Vehicle
     #attr_reader :flight
-    def slef.count
-        @count += 1
-    end
 
-    def self.new count = slfe.count
-        super
+    @@counter = 0
+    
+    def self.new
+      puts "Im creating a new Plane in Roubaix"
+      super
+
     end
 
     def initialize
-        super
-        @flight = false
+      super
+      @@counter += 1
+      @flight = false
+    end
+
+    def self.count
+      puts "We created #{@@counter} planes."
     end
 
     def flight?
-        @flight
+      @flight
     end
 
     def land
-        @flight = false
+      @flight = false
     end
 
     def take_off
-        @flight = true
+      @flight = true
     end
 
-    def move latitude = 0,longitude = 0,altitude = 0
-      flight? ? super : false
+    def move delta_latitude = 0,delta_longitude = 0,delta_altitude = 0
+      return false if !flight?
+      super
     end
 
     private
@@ -44,3 +51,4 @@ p.take_off
 p.move(-3.2985609,-2.493007)
 puts "Advance to Tours"
 puts p.position
+puts Plane.count
