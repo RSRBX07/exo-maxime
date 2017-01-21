@@ -15,7 +15,7 @@ class Plane < Vehicle
     end
 
     def self.count
-    puts "We created #{@@counter} planes."
+      puts "We created #{@@counter} planes."
     end
 
     def flight?
@@ -30,8 +30,9 @@ class Plane < Vehicle
       @flight = true
     end
 
-    def move latitude = 0,longitude = 0,altitude = 0
-      flight? ? super : false
+    def move delta_latitude = 0,delta_longitude = 0,delta_altitude = 0
+      return false if !flight?
+      super
     end
 
     private
