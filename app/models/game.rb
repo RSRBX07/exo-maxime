@@ -1,6 +1,9 @@
 class Game < ApplicationRecord
 
-
+  def players
+    @players ||= 0
+  end
+  
   def add_player
     @players += 1  
   end
@@ -11,9 +14,5 @@ class Game < ApplicationRecord
   end
 
 private
-
-  def initialize
-    @players = 0
-  end
 
 end
