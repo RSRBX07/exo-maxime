@@ -1,6 +1,8 @@
 class Game < ApplicationRecord
+  #@players = Games.find(:all, :limit => params[:players])
 
   def players
+    #@players
     @players ||= 0
   end
   
