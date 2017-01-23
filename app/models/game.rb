@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   end
 
   def del_player
-    return @players if @players <= 0
+    raise RuntimeError.new "no more player to be removed" if @players <= 0
     @players -= 1
   end
 
