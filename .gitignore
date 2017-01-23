@@ -21,3 +21,5 @@
 .byebug_history
 .vscode
 /spec/examples.txt
+examples.txt
+spec/examples.txt
