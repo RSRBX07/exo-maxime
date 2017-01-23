@@ -1,8 +1,7 @@
-require './vehicle/vehicle.rb'
+require_relative 'vehicle.rb'
 class Plane < Vehicle
     #attr_reader :flight
-    @@counter = 0
-    
+  
     def self.new
       puts "Im creating a new Plane in Roubaix"
       super
@@ -10,12 +9,7 @@ class Plane < Vehicle
 
     def initialize
       super
-      @@counter += 1
       @flight = false
-    end
-
-    def self.count
-      puts "We created #{@@counter} planes."
     end
 
     def flight?
@@ -35,9 +29,6 @@ class Plane < Vehicle
       super
     end
 
-    private
-
-
 end
 
 a = Plane.new
@@ -49,4 +40,5 @@ p.take_off
 p.move(-3.2985609,-2.493007)
 puts "Advance to Tours"
 puts p.position
-puts Plane.count
+Vehicle.count
+Plane.count
