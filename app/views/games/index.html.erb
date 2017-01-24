@@ -30,6 +30,6 @@
 
 <% @games.each do |game| %>
   <div>
-  <%= game.name %>
+  <%= link_to game.name, game %>
   </div>
 <% end %>
