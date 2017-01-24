@@ -2,7 +2,7 @@
 
 <h1>Games</h1>
 
-<table>
+<!--<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -26,4 +26,10 @@
 
 <br>
 
-<%= link_to 'New Game', new_game_path %>
+<%= link_to 'New Game', new_game_path %>-->
+
+<% @games.each do |game| %>
+  <div>
+  <%= game.name %>
+  </div>
+<% end %>
