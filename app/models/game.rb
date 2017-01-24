@@ -2,6 +2,7 @@ class Game < ApplicationRecord
   #@players = Games.find(:all, :limit => params[:players])
 
   
+  
   def add_player
     @players += 1  
   end

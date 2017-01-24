@@ -8,12 +8,16 @@
 <p>
   <strong>Players</strong>
   <%= @game.players %>
-  <%= @game.inspect %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @game.description %>
+</p>
+
+<p>
+  <strong>Draw:</strong>
+  <%= @game.draw %>
 </p>
 
 <%= link_to 'Back', games_path %>
