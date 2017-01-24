@@ -1,8 +1,6 @@
 class Game < ApplicationRecord
   #@players = Games.find(:all, :limit => params[:players])
 
-
-  
   def add_player
     @players += 1  
   end
@@ -15,15 +13,12 @@ class Game < ApplicationRecord
   def draw_t
     grid = "1234567890"
     name_rar_file = ""
-
     4.times {
       rd = rand(grid.size)
       name_rar_file = name_rar_file << grid[rd]
     }
-    @game.draw="#{name_rar_file}"
+    #return @game.draw if @game.draw != "[0,0,0,0]"
+    name_rar_file
   end
-  #edit_game_path(@game.draw,'[1,2,3,4]')
-
-private
 
 end

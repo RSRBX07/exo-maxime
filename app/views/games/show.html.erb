@@ -17,7 +17,14 @@
 
 <p>
   <strong>Draw:</strong>
-  <%= @game.draw_t %>
+  <%= if @game.draw.size == 0 
+        @game.draw=@game.draw_t
+        @game.save
+        @game.draw
+      else 
+        @game.draw
+      end 
+  %>
 </p>
 
 <%= link_to 'Back', games_path %>
