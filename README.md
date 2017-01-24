@@ -1,7 +1,7 @@
 # README
+
+
 [![CircleCI](https://circleci.com/gh/RSRBX07/exo-maxime.svg?style=svg)](https://circleci.com/gh/RSRBX07/exo-maxime)
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
 Things you may want to cover:
 
