@@ -20,7 +20,7 @@ class Game < ApplicationRecord
       rd = rand(grid.size)
       name_rar_file = name_rar_file << grid[rd]
     }
-    return name_rar_file
+    @game.draw="#{name_rar_file}"
   end
   #edit_game_path(@game.draw,'[1,2,3,4]')
 
