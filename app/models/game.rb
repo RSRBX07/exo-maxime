@@ -1,5 +1,4 @@
 class Game < ApplicationRecord
-  #@players = Games.find(:all, :limit => params[:players])
 
   def add_player
     @players += 1  
@@ -10,15 +9,19 @@ class Game < ApplicationRecord
     @players -= 1
   end
 
-  def draw_t
-    grid = "1234567890"
-    name_rar_file = ""
-    4.times {
-      rd = rand(grid.size)
-      name_rar_file = name_rar_file << grid[rd]
-    }
-    #return @game.draw if @game.draw != "[0,0,0,0]"
-    name_rar_file
+  def new_draw
+    if self.draw.size == 0 
+      grid = "1234567890"
+      new_grid = ""
+      5.times {
+        roll = rand(grid.size)
+        new_grid = new_grid << grid[roll]
+      }
+      self.draw=new_grid.split(//).to_s
+      self.save
+      self.draw
+    else 
+      self.draw
+    end 
   end
-
 end
